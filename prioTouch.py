@@ -12,8 +12,8 @@ os.environ["SDL_MOUSE_TOUCH_EVENTS"] = "1"
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 480
 BACKGROUND_COLOR = (255, 255, 255)
-TEXT_COLOR = (33, 102, 172)
-FONT_SIZE = 25
+TEXT_COLOR = (48, 127, 112)
+FONT_SIZE = 30
 LOGO_PATH = "assets/Priogen_logo.png"
 
 logging.basicConfig(level=logging.INFO)
