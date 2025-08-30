@@ -117,9 +117,9 @@ def main():
     icon_font = pygame.font.SysFont("Arial", 35)
     clock = pygame.time.Clock()
 
-    custom_button = TouchButton("Custom Run", (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 170))
-    nano_button = TouchButton("Nano-QuIC", (SCREEN_WIDTH // 4, SCREEN_HEIGHT // 2 + 80))
-    rt_button = TouchButton("RT-QuIC", (3 * SCREEN_WIDTH // 4, SCREEN_HEIGHT // 2 + 80))
+    custom_button = TouchButton("Custom Run", (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 130))
+    nano_button = TouchButton("Nano-QuIC", (SCREEN_WIDTH // 4, SCREEN_HEIGHT // 2 + 40))
+    rt_button = TouchButton("RT-QuIC", (3 * SCREEN_WIDTH // 4, SCREEN_HEIGHT // 2 + 40))
     back_arrow = TouchButton("←", (70, 40), (50, 50))
     start_nano_button = TouchButton("Start Nano-QuIC", (SCREEN_WIDTH // 2, SCREEN_HEIGHT - 60), (300, 60))
 
