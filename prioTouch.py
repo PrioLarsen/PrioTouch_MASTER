@@ -6,6 +6,7 @@ import shutil
 import time
 import glob
 from moviepy.editor import VideoFileClip
+from temperature_sensor import read_temp
 
 os.environ["SDL_MOUSE_TOUCH_EVENTS"] = "1"
 
@@ -60,6 +61,15 @@ def draw_datetime_bar(screen, font):
     screen.blit(time_surf, (10, SCREEN_HEIGHT - time_surf.get_height() - 10))
     screen.blit(date_surf, (SCREEN_WIDTH - date_surf.get_width() - 10, SCREEN_HEIGHT - date_surf.get_height() - 10))
 
+    # Temperature centered at the bottom
+    temp = read_temp()
+    if temp:
+        temp_c, _ = temp
+        temp_text = f"{temp_c:.1f} °C"
+    else:
+        temp_text = "Temp N/A"
+    temp_surf = font.render(temp_text, True, TEXT_COLOR)
+    screen.blit(temp_surf, (SCREEN_WIDTH // 2 - temp_surf.get_width() // 2, SCREEN_HEIGHT - temp_surf.get_height() - 10))
 def draw_title(screen, text, font):
     shadow_surface = font.render(text, True, (0, 0, 0))
     title_surface = font.render(text, True, TEXT_COLOR)
@@ -122,6 +132,14 @@ def main():
     rt_button = TouchButton("RT-QuIC", (3 * SCREEN_WIDTH // 4, SCREEN_HEIGHT // 2 + 40))
     back_arrow = TouchButton("←", (70, 40), (50, 50))
     start_nano_button = TouchButton("Start Nano-QuIC", (SCREEN_WIDTH // 2, SCREEN_HEIGHT - 60), (300, 60))
+
+    from temperature_sensor import read_temp
+
+    temp_data = read_temp()
+    if temp_data:
+        temp_c, temp_f = temp_data
+        print(f"Temp: {temp_c} °C / {temp_f} °F")
+
 
     state = "home"
     file_buttons = []
